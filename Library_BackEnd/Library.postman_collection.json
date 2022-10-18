@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "e58d2054-becb-4a72-8d03-f25853d01fba",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23223038"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Log In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "mariap",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "09876",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8085/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Find All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/book/booklist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"book",
+								"booklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/book/bookname/Cien Años de Soledad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"book",
+								"bookname",
+								"Cien Años de Soledad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"La Prueba\",\r\n    \"description\": \"Este es un libro de prueba.\",\r\n    \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Books_HD_%288314929977%29.jpg/800px-Books_HD_%288314929977%29.jpg\",\r\n    \"editorial_id\": 3,\r\n    \"edit_date\": \"17/10/2022\",\r\n    \"amount\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/book/createbook",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"book",
+								"createbook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/book/deletebook/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"book",
+								"deletebook",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"La Prueba\",\r\n    \"description\": \"Este es un libro de prueba.\",\r\n    \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Books_HD_%288314929977%29.jpg/800px-Books_HD_%288314929977%29.jpg\",\r\n    \"editorial_id\": 3,\r\n    \"edit_date\": \"17/10/2022\",\r\n    \"amount\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/book/updatebook",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"book",
+								"updatebook"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Editorial",
+			"item": [
+				{
+					"name": "Find All Editorials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/editorial/editoriallist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"editorial",
+								"editoriallist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Editorial",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba\",\r\n    \"web_site\": \"www.prueba-editorial.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/editorial/createeditorial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"editorial",
+								"createeditorial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Editorial",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/editorial/deleteeditorial/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"editorial",
+								"deleteeditorial",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Editorial",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Prueba Editorial\",\r\n    \"web_site\": \"www.prueba-editorial.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/editorial/updateeditorial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"editorial",
+								"updateeditorial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Find All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8084/user/userlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"user",
+								"userlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pedro\",\r\n    \"last_name\": \"Perez\",\r\n    \"birth_date\": \"18/01/2000\",\r\n    \"position\": \"Cliente\",\r\n    \"active\": true,\r\n    \"username\": \"pedrop\",\r\n    \"password\": \"22222\",\r\n    \"token\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/user/createuser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"user",
+								"createuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inactivate User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8084/user/inactivate/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"user",
+								"inactivate",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJqYXZlcmlhbmFKV1QiLCJzdWIiOiJtYXJpYXAiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjY2MDY0NjAwLCJleHAiOjE2NjYwNjUyMDB9.3SYZrhbYmXXaqy6U75w1mGKimYD1UV02vgG3OPeLcxPA8iWcLaVjgwQX3S7IrmdLFKhKI2tKwnhEOMuR_CIAUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Pedro\",\r\n    \"last_name\": \"Perez\",\r\n    \"birth_date\": \"18/01/2000\",\r\n    \"position\": \"Cliente\",\r\n    \"active\": true,\r\n    \"username\": \"pedrope\",\r\n    \"password\": \"22222\",\r\n    \"token\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/user/updateuser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"user",
+								"updateuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
