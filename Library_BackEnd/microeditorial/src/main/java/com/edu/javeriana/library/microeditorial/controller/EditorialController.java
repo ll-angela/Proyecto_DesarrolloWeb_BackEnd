@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/editorial")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class EditorialController {
 
     @Autowired
@@ -19,7 +20,7 @@ public class EditorialController {
     }
 
     @GetMapping("/editoriallist")
-    public List<Editorial> findAllEditorials() {
+    public Iterable<Editorial> findAllEditorials() {
         return editorialService.findAllEditorials();
     }
 

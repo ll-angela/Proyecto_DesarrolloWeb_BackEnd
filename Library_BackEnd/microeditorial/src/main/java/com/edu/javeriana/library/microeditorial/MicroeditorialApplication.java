@@ -27,6 +27,7 @@ public class MicroeditorialApplication {
 					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
 					.antMatchers(HttpMethod.GET, "/login").permitAll()
+					.antMatchers(HttpMethod.GET, "/editorial/editoriallist").permitAll()
 					.anyRequest().authenticated();
 		}
 	}

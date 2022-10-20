@@ -18,6 +18,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
+   @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/booklist")
     public List<Book> findAllBooks() {
 
@@ -30,6 +31,7 @@ public class BookController {
         return bookService.getBookById(idBook);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/bookname/{bookName}")
     private List<Book> findByName(@PathVariable("bookName") String bookName) {
         return bookService.getBookByName(bookName);
