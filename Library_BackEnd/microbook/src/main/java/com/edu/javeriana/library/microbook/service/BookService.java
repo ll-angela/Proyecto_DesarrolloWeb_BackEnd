@@ -3,6 +3,8 @@ package com.edu.javeriana.library.microbook.service;
 import com.edu.javeriana.library.microbook.domain.Book;
 import com.edu.javeriana.library.microbook.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,6 +18,10 @@ public class BookService {
 
     public List<Book> findAllBooks() {
         return bookRepository.findAll();
+    }
+
+    public Page<Book> paged(Pageable pageable) {
+        return bookRepository.findAll(pageable);
     }
 
     public Book getBookById(Integer idBook) {

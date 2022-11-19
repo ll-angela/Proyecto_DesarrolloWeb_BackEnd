@@ -3,6 +3,8 @@ package com.edu.javeriana.library.microuser.service;
 import com.edu.javeriana.library.microuser.domain.User;
 import com.edu.javeriana.library.microuser.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,10 @@ public class UserService {
 
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    public Page<User> paged(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     public void saveUser(User user) {
